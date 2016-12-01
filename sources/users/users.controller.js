@@ -20,15 +20,12 @@ function get(req, res) {
 }
 
 function create(req, res) {
-  console.log(req.body)
-
   const user = Users(req.body)
 
   user
     .save()
     .then(() => res.status(201).json({message: 'created'}))
     .catch((err) => {
-      console.log(err);
       res.status(400).json({message: err.message})
     })
 }
